@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="spring_mvc" default="all">
+  
+  
+  <property file="spring_mvc.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.apk"/>
+    <include name="*.zip"/>
+    <include name="*.egg"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.6_25" value="${jdk.home.1.6_25}/bin"/>
+  <path id="jdk.classpath.1.6_25">
+    <fileset dir="${jdk.home.1.6_25}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.6_25}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.6_25}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.6_25"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.spring-4.2.6.release.classpath">
+    <pathelement location="${basedir}/lib/aopalliance-1.0.jar"/>
+    <pathelement location="${basedir}/lib/commons-logging-1.1.3.jar"/>
+    <pathelement location="${basedir}/lib/spring-aop-4.2.6.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-aspects-4.2.6.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-beans-4.2.6.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-context-4.2.6.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-context-support-4.2.6.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-core-4.2.6.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-expression-4.2.6.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-instrument-4.2.6.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-instrument-tomcat-4.2.6.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-jdbc-4.2.6.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-jms-4.2.6.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-messaging-4.2.6.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-orm-4.2.6.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-oxm-4.2.6.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-test-4.2.6.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-tx-4.2.6.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.spring_batch-2.2.6.classpath">
+    <pathelement location="${basedir}/lib/spring-batch-core-2.2.6.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-batch-infrastructure-2.2.6.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.spring_data_jpa-1.3.3.classpath">
+    <pathelement location="${basedir}/lib/spring-data-jpa-1.3.3.jar"/>
+  </path>
+  
+  <path id="library.spring_integration-4.0.3.classpath">
+    <pathelement location="${basedir}/lib/spring-integration-amqp-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-core-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-event-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-feed-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-file-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-ftp-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-gemfire-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-groovy-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-http-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-ip-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-jdbc-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-jms-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-jmx-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-jpa-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-mail-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-mongodb-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-mqtt-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-redis-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-rmi-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-scripting-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-security-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-sftp-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-stream-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-syslog-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-test-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-twitter-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-ws-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-xml-4.0.3.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-integration-xmpp-4.0.3.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.spring_mvc-4.2.6.release.classpath">
+    <pathelement location="${basedir}/lib/spring-web-4.2.6.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-webmvc-4.2.6.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-webmvc-portlet-4.2.6.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-websocket-4.2.6.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.spring_security-3.2.5.classpath">
+    <pathelement location="${basedir}/lib/spring-security-acl-3.2.5.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-security-aspects-3.2.5.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-security-cas-3.2.5.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-security-config-3.2.5.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-security-core-3.2.5.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-security-crypto-3.2.5.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-security-ldap-3.2.5.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-security-openid-3.2.5.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-security-remoting-3.2.5.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-security-taglibs-3.2.5.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-security-web-3.2.5.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.spring_web_services-2.0.2.classpath">
+    <pathelement location="${basedir}/lib/spring-ws.jar"/>
+  </path>
+  
+  <path id="library.spring_webflow-2.4.0.classpath">
+    <pathelement location="${basedir}/lib/spring-binding-2.4.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-faces-2.4.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-js-2.4.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-js-resources-2.4.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-webflow-2.4.0.RELEASE.jar"/>
+  </path>
+  
+  
+  <!-- Application Server Libraries -->
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module Spring_MVC -->
+  
+  <dirname property="module.spring_mvc.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.spring_mvc" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.spring_mvc" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.spring_mvc" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.spring_mvc" value="-encoding UTF-8 -source 1.6 -target 1.6 ${compiler.args}"/>
+  
+  <property name="spring_mvc.output.dir" value="${module.spring_mvc.basedir}/out/production/Spring_MVC"/>
+  <property name="spring_mvc.testoutput.dir" value="${module.spring_mvc.basedir}/out/test/Spring_MVC"/>
+  
+  <path id="spring_mvc.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="spring_mvc.module.production.classpath">
+    <path refid="${module.jdk.classpath.spring_mvc}"/>
+    <path refid="library.spring-4.2.6.release.classpath"/>
+    <path refid="library.spring_webflow-2.4.0.classpath"/>
+    <path refid="library.spring_web_services-2.0.2.classpath"/>
+    <path refid="library.spring_security-3.2.5.classpath"/>
+    <path refid="library.spring_integration-4.0.3.classpath"/>
+    <path refid="library.spring_mvc-4.2.6.release.classpath"/>
+    <path refid="library.spring_batch-2.2.6.classpath"/>
+    <path refid="library.spring_data_jpa-1.3.3.classpath"/>
+  </path>
+  
+  <path id="spring_mvc.runtime.production.module.classpath">
+    <pathelement location="${spring_mvc.output.dir}"/>
+    <path refid="library.spring-4.2.6.release.classpath"/>
+    <path refid="library.spring_webflow-2.4.0.classpath"/>
+    <path refid="library.spring_web_services-2.0.2.classpath"/>
+    <path refid="library.spring_security-3.2.5.classpath"/>
+    <path refid="library.spring_integration-4.0.3.classpath"/>
+    <path refid="library.spring_mvc-4.2.6.release.classpath"/>
+    <path refid="library.spring_batch-2.2.6.classpath"/>
+    <path refid="library.spring_data_jpa-1.3.3.classpath"/>
+  </path>
+  
+  <path id="spring_mvc.module.classpath">
+    <path refid="${module.jdk.classpath.spring_mvc}"/>
+    <pathelement location="${spring_mvc.output.dir}"/>
+    <path refid="library.spring-4.2.6.release.classpath"/>
+    <path refid="library.spring_webflow-2.4.0.classpath"/>
+    <path refid="library.spring_web_services-2.0.2.classpath"/>
+    <path refid="library.spring_security-3.2.5.classpath"/>
+    <path refid="library.spring_integration-4.0.3.classpath"/>
+    <path refid="library.spring_mvc-4.2.6.release.classpath"/>
+    <path refid="library.spring_batch-2.2.6.classpath"/>
+    <path refid="library.spring_data_jpa-1.3.3.classpath"/>
+  </path>
+  
+  <path id="spring_mvc.runtime.module.classpath">
+    <pathelement location="${spring_mvc.testoutput.dir}"/>
+    <pathelement location="${spring_mvc.output.dir}"/>
+    <path refid="library.spring-4.2.6.release.classpath"/>
+    <path refid="library.spring_webflow-2.4.0.classpath"/>
+    <path refid="library.spring_web_services-2.0.2.classpath"/>
+    <path refid="library.spring_security-3.2.5.classpath"/>
+    <path refid="library.spring_integration-4.0.3.classpath"/>
+    <path refid="library.spring_mvc-4.2.6.release.classpath"/>
+    <path refid="library.spring_batch-2.2.6.classpath"/>
+    <path refid="library.spring_data_jpa-1.3.3.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.spring_mvc">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.spring_mvc">
+    <patternset refid="excluded.from.module.spring_mvc"/>
+  </patternset>
+  
+  <path id="spring_mvc.module.sourcepath">
+    <dirset dir="${module.spring_mvc.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.spring_mvc" depends="compile.module.spring_mvc.production,compile.module.spring_mvc.tests" description="Compile module Spring_MVC"/>
+  
+  <target name="compile.module.spring_mvc.production" depends="register.custom.compilers" description="Compile module Spring_MVC; production classes">
+    <mkdir dir="${spring_mvc.output.dir}"/>
+    <javac2 destdir="${spring_mvc.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.spring_mvc}/javac">
+      <compilerarg line="${compiler.args.spring_mvc}"/>
+      <bootclasspath refid="spring_mvc.module.bootclasspath"/>
+      <classpath refid="spring_mvc.module.production.classpath"/>
+      <src refid="spring_mvc.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.spring_mvc"/>
+    </javac2>
+    
+    <copy todir="${spring_mvc.output.dir}">
+      <fileset dir="${module.spring_mvc.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.spring_mvc.tests" depends="register.custom.compilers,compile.module.spring_mvc.production" description="compile module Spring_MVC; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.spring_mvc" description="cleanup module">
+    <delete dir="${spring_mvc.output.dir}"/>
+    <delete dir="${spring_mvc.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.spring_mvc, clean.artifact.spring_mvc:war_exploded" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.spring_mvc" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.spring_mvc:war_exploded" value="${basedir}/out/artifacts/Spring_MVC_war_exploded"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="clean.artifact.spring_mvc:war_exploded" description="clean Spring_MVC:war exploded artifact output">
+    <delete dir="${artifact.output.spring_mvc:war_exploded}"/>
+  </target>
+  
+  <target name="artifact.spring_mvc:war_exploded" depends="init.artifacts, compile.module.spring_mvc" description="Build &#39;Spring_MVC:war exploded&#39; artifact">
+    <mkdir dir="${artifact.output.spring_mvc:war_exploded}"/>
+    <mkdir dir="${artifact.output.spring_mvc:war_exploded}/WEB-INF"/>
+    <mkdir dir="${artifact.output.spring_mvc:war_exploded}/WEB-INF/classes"/>
+    <copy todir="${artifact.output.spring_mvc:war_exploded}/WEB-INF/classes">
+      <fileset dir="${spring_mvc.output.dir}"/>
+    </copy>
+    <mkdir dir="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib"/>
+    <copy file="${basedir}/lib/spring-aspects-4.2.6.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-aspects-4.2.6.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-aop-4.2.6.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-aop-4.2.6.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-beans-4.2.6.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-beans-4.2.6.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-context-support-4.2.6.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-context-support-4.2.6.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-expression-4.2.6.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-expression-4.2.6.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-instrument-tomcat-4.2.6.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-instrument-tomcat-4.2.6.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-instrument-4.2.6.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-instrument-4.2.6.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-jdbc-4.2.6.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-jdbc-4.2.6.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-context-4.2.6.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-context-4.2.6.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-messaging-4.2.6.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-messaging-4.2.6.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-oxm-4.2.6.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-oxm-4.2.6.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-core-4.2.6.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-core-4.2.6.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-tx-4.2.6.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-tx-4.2.6.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-orm-4.2.6.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-orm-4.2.6.RELEASE.jar"/>
+    <copy file="${basedir}/lib/aopalliance-1.0.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/aopalliance-1.0.jar"/>
+    <copy file="${basedir}/lib/commons-logging-1.1.3.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/commons-logging-1.1.3.jar"/>
+    <copy file="${basedir}/lib/spring-test-4.2.6.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-test-4.2.6.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-jms-4.2.6.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-jms-4.2.6.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-js-2.4.0.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-js-2.4.0.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-binding-2.4.0.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-binding-2.4.0.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-webflow-2.4.0.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-webflow-2.4.0.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-faces-2.4.0.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-faces-2.4.0.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-js-resources-2.4.0.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-js-resources-2.4.0.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-ws.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-ws.jar"/>
+    <copy file="${basedir}/lib/spring-security-cas-3.2.5.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-security-cas-3.2.5.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-security-aspects-3.2.5.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-security-aspects-3.2.5.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-security-acl-3.2.5.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-security-acl-3.2.5.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-security-crypto-3.2.5.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-security-crypto-3.2.5.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-security-ldap-3.2.5.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-security-ldap-3.2.5.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-security-config-3.2.5.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-security-config-3.2.5.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-security-openid-3.2.5.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-security-openid-3.2.5.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-security-remoting-3.2.5.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-security-remoting-3.2.5.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-security-taglibs-3.2.5.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-security-taglibs-3.2.5.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-security-core-3.2.5.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-security-core-3.2.5.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-security-web-3.2.5.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-security-web-3.2.5.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-feed-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-feed-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-event-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-event-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-amqp-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-amqp-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-ftp-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-ftp-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-gemfire-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-gemfire-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-core-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-core-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-groovy-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-groovy-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-http-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-http-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-jdbc-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-jdbc-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-ip-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-ip-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-jms-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-jms-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-file-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-file-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-jmx-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-jmx-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-jpa-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-jpa-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-mqtt-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-mqtt-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-mail-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-mail-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-rmi-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-rmi-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-scripting-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-scripting-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-redis-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-redis-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-security-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-security-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-stream-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-stream-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-sftp-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-sftp-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-mongodb-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-mongodb-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-syslog-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-syslog-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-test-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-test-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-twitter-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-twitter-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-xml-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-xml-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-ws-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-ws-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-integration-xmpp-4.0.3.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-integration-xmpp-4.0.3.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-webmvc-portlet-4.2.6.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-webmvc-portlet-4.2.6.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-websocket-4.2.6.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-websocket-4.2.6.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-web-4.2.6.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-web-4.2.6.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-webmvc-4.2.6.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-webmvc-4.2.6.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-batch-core-2.2.6.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-batch-core-2.2.6.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-batch-infrastructure-2.2.6.RELEASE.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-batch-infrastructure-2.2.6.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-data-jpa-1.3.3.jar" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/lib/spring-data-jpa-1.3.3.jar"/>
+    <copy todir="${artifact.output.spring_mvc:war_exploded}">
+      <fileset dir="${basedir}/web"/>
+    </copy>
+    <mkdir dir="${artifact.output.spring_mvc:war_exploded}/WEB-INF"/>
+    <copy file="${basedir}/web/WEB-INF/web.xml" tofile="${artifact.output.spring_mvc:war_exploded}/WEB-INF/web.xml"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.spring_mvc:war_exploded" description="Build all artifacts">
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>
